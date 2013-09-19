@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/pygment_trac.css" media="screen" />
+    <link rel="stylesheet" type="text/css" href="stylesheets/print.css" media="print" />
+
+    <title>String by bscm</title>
+  </head>
+
+  <body>
+
+    <header>
+      <div class="container">
+        <h1>String</h1>
+        <h2>Strings handler written in Bash</h2>
+
+        <section id="downloads">
+          <a href="https://github.com/bscm/string/zipball/master" class="btn">Download as .zip</a>
+          <a href="https://github.com/bscm/string/tarball/master" class="btn">Download as .tar.gz</a>
+          <a href="https://github.com/bscm/string" class="btn btn-github"><span class="icon"></span>View on GitHub</a>
+        </section>
+      </div>
+    </header>
+
+    <div class="container">
+      <section id="main_content">
+        <h1>
+<a name="string" class="anchor" href="#string"><span class="octicon octicon-link"></span></a>String</h1>
+
+<p>Strings handler written in Bash.</p>
+
+<h2>
+<a name="string_lower" class="anchor" href="#string_lower"><span class="octicon octicon-link"></span></a><code>string_lower</code>
+</h2>
+
+<p>Lower case a string,</p>
+
+<p>Passing string as parameter:</p>
+
+<div class="highlight highlight-bash"><pre>string_lower <span class="s2">"Some STRING"</span> <span class="c"># some string</span>
+</pre></div>
+
+<p>Passing string in a pipe:</p>
+
+<div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"Some STRING"</span> | string_lower <span class="c"># some string</span>
+</pre></div>
+
+<h2>
+<a name="string_upper" class="anchor" href="#string_upper"><span class="octicon octicon-link"></span></a><code>string_upper</code>
+</h2>
+
+<p>Upper case a string.</p>
+
+<p>Passing string as parameter:</p>
+
+<div class="highlight highlight-bash"><pre>string_lower <span class="s2">"Some string"</span> <span class="c"># SOME STRING</span>
+</pre></div>
+
+<p>Passing string in a pipe:</p>
+
+<div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"Some string"</span> | string_lower <span class="c"># SOME STRING</span>
+</pre></div>
+
+<h2>
+<a name="string_title" class="anchor" href="#string_title"><span class="octicon octicon-link"></span></a><code>string_title</code>
+</h2>
+
+<p>Capitalize a string.</p>
+
+<p>Passing string as parameter:</p>
+
+<div class="highlight highlight-bash"><pre>string_lower <span class="s2">"some string"</span> <span class="c"># Some String</span>
+</pre></div>
+
+<p>Passing string in a pipe:</p>
+
+<div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"some string"</span> | string_lower <span class="c"># Some String</span>
+</pre></div>
+
+<h2>
+<a name="string_separator_camelcase" class="anchor" href="#string_separator_camelcase"><span class="octicon octicon-link"></span></a><code>string_separator_camelcase</code>
+</h2>
+
+<p>Converts a string replacing a separator to camelcase.</p>
+
+<p>Passing string as parameter:</p>
+
+<div class="highlight highlight-bash"><pre>string_separator_camelcase <span class="s2">"_"</span> <span class="s2">"this_is_a_string"</span> <span class="c"># thisIsAString</span>
+</pre></div>
+
+<p>Passing string in a pipe:</p>
+
+<div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"this-is-a-string"</span> | string_separator_camelcase <span class="s2">"-"</span> <span class="c"># thisIsAString</span>
+</pre></div>
+
+<h2>
+<a name="string_camelcase_separator" class="anchor" href="#string_camelcase_separator"><span class="octicon octicon-link"></span></a><code>string_camelcase_separator</code>
+</h2>
+
+<p>Converts a string replacing camelcase to a separator.</p>
+
+<p>Passing string as parameter:</p>
+
+<div class="highlight highlight-bash"><pre>string_camelcase_separator <span class="s2">"_"</span> <span class="s2">"thisIsAString"</span> <span class="c"># this_Is_A_String</span>
+</pre></div>
+
+<p>Passing string in a pipe:</p>
+
+<div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"thisIsAString"</span> | string_camelcase_separator <span class="s2">"-"</span> <span class="c"># this-Is-A-String</span>
+</pre></div>
+      </section>
+    </div>
+
+    
+  </body>
+</html>

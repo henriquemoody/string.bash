@@ -47,3 +47,19 @@ Passing string in a pipe:
 ````bash
 echo "some string" | string_lower # Some String
 ````
+
+`string_separator_camelcase`
+----------------------------
+
+Converts a string replacing a separator to camelcase.
+
+
+Passing string as parameter:
+````bash
+string_separator_camelcase "_" "this_is_a_string" # thisIsAString
+````
+
+Passing string in a pipe:
+````bash
+echo "this-is-a-string" | string_separator_camelcase "-" # thisIsAString
+````

@@ -63,3 +63,19 @@ Passing string in a pipe:
 ````bash
 echo "this-is-a-string" | string_separator_camelcase "-" # thisIsAString
 ````
+
+`string_camelcase_separator`
+----------------------------
+
+Converts a string replacing camelcase to a separator.
+
+
+Passing string as parameter:
+````bash
+string_camelcase_separator "_" "thisIsAString" # this_Is_A_String
+````
+
+Passing string in a pipe:
+````bash
+echo "thisIsAString" | string_camelcase_separator "-" # this-Is-A-String
+````

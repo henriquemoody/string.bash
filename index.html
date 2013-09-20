@@ -34,10 +34,18 @@
 <p>Strings handler written in Bash.</p>
 
 <h2>
-<a name="string_lower" class="anchor" href="#string_lower"><span class="octicon octicon-link"></span></a><code>string_lower</code>
-</h2>
+<a name="available-functions" class="anchor" href="#available-functions"><span class="octicon octicon-link"></span></a>Available functions</h2>
 
-<p>Lower case a string,</p>
+<ul>
+<li><a href="#string_lower">string_lower</a></li>
+<li><a href="#string_upper">string_upper</a></li>
+<li><a href="#string_title">string_title</a></li>
+<li><a href="#string_separator_camelcase">string_separator_camelcase</a></li>
+<li><a href="#string_camelcase_separator">string_camelcase_separator</a></li>
+</ul><h3>
+<a name="string_lower" class="anchor" href="#string_lower"><span class="octicon octicon-link"></span></a>string_lower</h3>
+
+<p>Lower case a string.</p>
 
 <p>Passing string as parameter:</p>
 
@@ -49,9 +57,8 @@
 <div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"Some STRING"</span> | string_lower <span class="c"># some string</span>
 </pre></div>
 
-<h2>
-<a name="string_upper" class="anchor" href="#string_upper"><span class="octicon octicon-link"></span></a><code>string_upper</code>
-</h2>
+<h3>
+<a name="string_upper" class="anchor" href="#string_upper"><span class="octicon octicon-link"></span></a>string_upper</h3>
 
 <p>Upper case a string.</p>
 
@@ -65,9 +72,8 @@
 <div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"Some string"</span> | string_lower <span class="c"># SOME STRING</span>
 </pre></div>
 
-<h2>
-<a name="string_title" class="anchor" href="#string_title"><span class="octicon octicon-link"></span></a><code>string_title</code>
-</h2>
+<h3>
+<a name="string_title" class="anchor" href="#string_title"><span class="octicon octicon-link"></span></a>string_title</h3>
 
 <p>Capitalize a string.</p>
 
@@ -81,9 +87,8 @@
 <div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"some string"</span> | string_lower <span class="c"># Some String</span>
 </pre></div>
 
-<h2>
-<a name="string_separator_camelcase" class="anchor" href="#string_separator_camelcase"><span class="octicon octicon-link"></span></a><code>string_separator_camelcase</code>
-</h2>
+<h3>
+<a name="string_separator_camelcase" class="anchor" href="#string_separator_camelcase"><span class="octicon octicon-link"></span></a>string_separator_camelcase</h3>
 
 <p>Converts a string replacing a separator to camelcase.</p>
 
@@ -97,9 +102,8 @@
 <div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"this-is-a-string"</span> | string_separator_camelcase <span class="s2">"-"</span> <span class="c"># thisIsAString</span>
 </pre></div>
 
-<h2>
-<a name="string_camelcase_separator" class="anchor" href="#string_camelcase_separator"><span class="octicon octicon-link"></span></a><code>string_camelcase_separator</code>
-</h2>
+<h3>
+<a name="string_camelcase_separator" class="anchor" href="#string_camelcase_separator"><span class="octicon octicon-link"></span></a>string_camelcase_separator</h3>
 
 <p>Converts a string replacing camelcase to a separator.</p>
 

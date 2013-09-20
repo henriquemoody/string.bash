@@ -6,6 +6,7 @@ Strings handler written in Bash.
 * [string_lower][]
 * [string_upper][]
 * [string_title][]
+* [string_repeat][]
 * [string_dash_camelcase][]
 * [string_separator_camelcase][]
 * [string_underscore_camelcase][]
@@ -50,6 +51,21 @@ string_lower "some string" # Some String
 Using pipes:
 ````bash
 echo "some string" | string_lower # Some String
+````
+
+### string_repeat
+Repeat a string.
+
+Passing string as argument:
+````bash
+string_repeat 2 "Some string\n"
+# Some string
+# Some string
+````
+
+Using pipes:
+````bash
+echo "*" | string_repeat 10 # **********
 ````
 
 ### string_dash_camelcase
@@ -133,6 +149,7 @@ echo "thisIsAString" | string_camelcase_underscore # this_Is_A_String
 [string_lower]: #string_lower
 [string_upper]: #string_upper
 [string_title]: #string_title
+[string_repeat]: #string_repeat
 [string_dash_camelcase]: #string_dash_camelcase
 [string_separator_camelcase]: #string_separator_camelcase
 [string_underscore_camelcase]: #string_underscore_camelcase

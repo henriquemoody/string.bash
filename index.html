@@ -40,19 +40,26 @@
 <li><a href="#string_lower">string_lower</a></li>
 <li><a href="#string_upper">string_upper</a></li>
 <li><a href="#string_title">string_title</a></li>
+<li><a href="#string_repeat">string_repeat</a></li>
+<li><a href="#string_scape">string_scape</a></li>
+<li><a href="#string_replace">string_replace</a></li>
+<li><a href="#string_dash_camelcase">string_dash_camelcase</a></li>
 <li><a href="#string_separator_camelcase">string_separator_camelcase</a></li>
+<li><a href="#string_underscore_camelcase">string_underscore_camelcase</a></li>
+<li><a href="#string_camelcase_dash">string_camelcase_dash</a></li>
 <li><a href="#string_camelcase_separator">string_camelcase_separator</a></li>
+<li><a href="#string_camelcase_underscore">string_camelcase_underscore</a></li>
 </ul><h3>
 <a name="string_lower" class="anchor" href="#string_lower"><span class="octicon octicon-link"></span></a>string_lower</h3>
 
 <p>Lower case a string.</p>
 
-<p>Passing string as parameter:</p>
+<p>Passing string as argument:</p>
 
 <div class="highlight highlight-bash"><pre>string_lower <span class="s2">"Some STRING"</span> <span class="c"># some string</span>
 </pre></div>
 
-<p>Passing string in a pipe:</p>
+<p>Using pipes:</p>
 
 <div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"Some STRING"</span> | string_lower <span class="c"># some string</span>
 </pre></div>
@@ -62,12 +69,12 @@
 
 <p>Upper case a string.</p>
 
-<p>Passing string as parameter:</p>
+<p>Passing string as argument:</p>
 
 <div class="highlight highlight-bash"><pre>string_lower <span class="s2">"Some string"</span> <span class="c"># SOME STRING</span>
 </pre></div>
 
-<p>Passing string in a pipe:</p>
+<p>Using pipes:</p>
 
 <div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"Some string"</span> | string_lower <span class="c"># SOME STRING</span>
 </pre></div>
@@ -77,44 +84,161 @@
 
 <p>Capitalize a string.</p>
 
-<p>Passing string as parameter:</p>
+<p>Passing string as argument:</p>
 
 <div class="highlight highlight-bash"><pre>string_lower <span class="s2">"some string"</span> <span class="c"># Some String</span>
 </pre></div>
 
-<p>Passing string in a pipe:</p>
+<p>Using pipes:</p>
 
 <div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"some string"</span> | string_lower <span class="c"># Some String</span>
 </pre></div>
 
 <h3>
-<a name="string_separator_camelcase" class="anchor" href="#string_separator_camelcase"><span class="octicon octicon-link"></span></a>string_separator_camelcase</h3>
+<a name="string_repeat" class="anchor" href="#string_repeat"><span class="octicon octicon-link"></span></a>string_repeat</h3>
 
-<p>Converts a string replacing a separator to camelcase.</p>
+<p>Repeat a string.</p>
 
-<p>Passing string as parameter:</p>
+<p>Passing string as argument:</p>
 
-<div class="highlight highlight-bash"><pre>string_separator_camelcase <span class="s2">"_"</span> <span class="s2">"this_is_a_string"</span> <span class="c"># thisIsAString</span>
+<div class="highlight highlight-bash"><pre>string_repeat 2 <span class="s2">"Some string\n"</span>
+<span class="c"># Some string</span>
+<span class="c"># Some string</span>
 </pre></div>
 
-<p>Passing string in a pipe:</p>
+<p>Using pipes:</p>
 
-<div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"this-is-a-string"</span> | string_separator_camelcase <span class="s2">"-"</span> <span class="c"># thisIsAString</span>
+<div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"*"</span> | string_repeat 10 <span class="c"># **********</span>
+</pre></div>
+
+<h3>
+<a name="string_scape" class="anchor" href="#string_scape"><span class="octicon octicon-link"></span></a>string_scape</h3>
+
+<p>Escape an string.</p>
+
+<p>Passing string as argument:</p>
+
+<div class="highlight highlight-bash"><pre>string_scape <span class="s2">"That's my boy!"</span> <span class="c"># That\'s my boy!</span>
+</pre></div>
+
+<p>Using pipes:</p>
+
+<div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s1">'We have some "rules"'</span> | string_scape <span class="c"># We have some \"rules\"</span>
+</pre></div>
+
+<p>Escaping a REGEX:</p>
+
+<div class="highlight highlight-bash"><pre>string_scape -r <span class="s2">"He (the programmer) really loves to code."</span> <span class="c"># He \(the programmer\) loves to code\.</span>
+</pre></div>
+
+<h3>
+<a name="string_replace" class="anchor" href="#string_replace"><span class="octicon octicon-link"></span></a>string_replace</h3>
+
+<p>Replaces content of a string.</p>
+
+<p>Passing string as argument:</p>
+
+<div class="highlight highlight-bash"><pre>string_replace <span class="s2">"boy"</span> <span class="s2">"girl"</span> <span class="s2">"That's my boy."</span> <span class="c"># That's my girl.</span>
+</pre></div>
+
+<p>Using pipes</p>
+
+<div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"John Doe"</span> | string_replace <span class="s2">"John"</span> <span class="s2">"Jane"</span> <span class="c"># Jane Doe</span>
+</pre></div>
+
+<p>Using REGEX:</p>
+
+<div class="highlight highlight-bash"><pre>string_replace -t regex <span class="s2">"[^a-z]"</span> <span class="s2">""</span> <span class="s2">"That's my boy."</span> <span class="c"># hats my boy</span>
+</pre></div>
+
+<h3>
+<a name="string_dash_camelcase" class="anchor" href="#string_dash_camelcase"><span class="octicon octicon-link"></span></a>string_dash_camelcase</h3>
+
+<p>Convert dash to camelcase.</p>
+
+<p>Passing string as argument:</p>
+
+<div class="highlight highlight-bash"><pre>string_dash_camelcase <span class="s2">"This-is-a-string"</span> <span class="c"># ThisIsAString</span>
+</pre></div>
+
+<p>Using pipes:</p>
+
+<div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"this-is-a-string"</span> | string_dash_camelcase <span class="c"># thisIsAString</span>
+</pre></div>
+
+<h3>
+<a name="string_separator_camelcase" class="anchor" href="#string_separator_camelcase"><span class="octicon octicon-link"></span></a>string_separator_camelcase</h3>
+
+<p>Convert separator to camelcase.</p>
+
+<p>Passing string as argument:</p>
+
+<div class="highlight highlight-bash"><pre>string_separator_camelcase <span class="s2">" "</span> <span class="s2">"This is a string"</span> <span class="c"># ThisIsAString</span>
+</pre></div>
+
+<p>Using pipes:</p>
+
+<div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"this is a string"</span> | string_separator_camelcase <span class="s2">" "</span> <span class="c"># thisIsAString</span>
+</pre></div>
+
+<h3>
+<a name="string_underscore_camelcase" class="anchor" href="#string_underscore_camelcase"><span class="octicon octicon-link"></span></a>string_underscore_camelcase</h3>
+
+<p>Convert underscore to camelcase.</p>
+
+<p>Passing string as argument:</p>
+
+<div class="highlight highlight-bash"><pre>string_underscore_camelcase <span class="s2">"This_is_a_string"</span> <span class="c"># ThisIsAString</span>
+</pre></div>
+
+<p>Using pipes:</p>
+
+<div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"this_is_a_string"</span> | string_underscore_camelcase <span class="c"># thisIsAString</span>
+</pre></div>
+
+<h3>
+<a name="string_camelcase_dash" class="anchor" href="#string_camelcase_dash"><span class="octicon octicon-link"></span></a>string_camelcase_dash</h3>
+
+<p>Convert camelcase to dash.</p>
+
+<p>Passing string as argument:</p>
+
+<div class="highlight highlight-bash"><pre>string_camelcase_dash <span class="s2">"ThisIsAString"</span> <span class="c"># This-Is-A-String</span>
+</pre></div>
+
+<p>Using pipes:</p>
+
+<div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"thisIsAString"</span> | string_camelcase_dash <span class="c"># this-Is-A-String</span>
 </pre></div>
 
 <h3>
 <a name="string_camelcase_separator" class="anchor" href="#string_camelcase_separator"><span class="octicon octicon-link"></span></a>string_camelcase_separator</h3>
 
-<p>Converts a string replacing camelcase to a separator.</p>
+<p>Convert camelcase to separator.</p>
 
-<p>Passing string as parameter:</p>
+<p>Passing string as argument:</p>
 
-<div class="highlight highlight-bash"><pre>string_camelcase_separator <span class="s2">"_"</span> <span class="s2">"thisIsAString"</span> <span class="c"># this_Is_A_String</span>
+<div class="highlight highlight-bash"><pre>string_camelcase_separator <span class="s2">" "</span> <span class="s2">"ThisIsAString"</span> <span class="c"># This Is A String</span>
 </pre></div>
 
-<p>Passing string in a pipe:</p>
+<p>Using pipes:</p>
 
-<div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"thisIsAString"</span> | string_camelcase_separator <span class="s2">"-"</span> <span class="c"># this-Is-A-String</span>
+<div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"thisIsAString"</span> | string_camelcase_separator <span class="s2">" "</span> <span class="c"># this Is A String</span>
+</pre></div>
+
+<h3>
+<a name="string_camelcase_underscore" class="anchor" href="#string_camelcase_underscore"><span class="octicon octicon-link"></span></a>string_camelcase_underscore</h3>
+
+<p>Convert camelcase to underscore.</p>
+
+<p>Passing string as argument:</p>
+
+<div class="highlight highlight-bash"><pre>string_camelcase_underscore <span class="s2">"ThisIsAString"</span> <span class="c"># This_Is_A_String</span>
+</pre></div>
+
+<p>Using pipes:</p>
+
+<div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"thisIsAString"</span> | string_camelcase_underscore <span class="c"># this_Is_A_String</span>
 </pre></div>
       </section>
     </div>

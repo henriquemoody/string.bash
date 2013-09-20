@@ -7,6 +7,7 @@ Strings handler written in Bash.
 * [string_upper][]
 * [string_title][]
 * [string_repeat][]
+* [string_scape][]
 * [string_dash_camelcase][]
 * [string_separator_camelcase][]
 * [string_underscore_camelcase][]
@@ -66,6 +67,24 @@ string_repeat 2 "Some string\n"
 Using pipes:
 ````bash
 echo "*" | string_repeat 10 # **********
+````
+
+### string_scape
+Escape an string.
+
+Passing string as argument:
+````bash
+string_scape "That's my boy!" # That\'s my boy!
+````
+
+Using pipes:
+````bash
+echo 'We have some "rules"' | string_scape # We have some \"rules\"
+````
+
+Escaping a REGEX:
+````bash
+string_scape -r "He (Moody) loves to code." # He \(Moody\) loves to code\.
 ````
 
 ### string_dash_camelcase
@@ -150,6 +169,7 @@ echo "thisIsAString" | string_camelcase_underscore # this_Is_A_String
 [string_upper]: #string_upper
 [string_title]: #string_title
 [string_repeat]: #string_repeat
+[string_scape]: #string_scape
 [string_dash_camelcase]: #string_dash_camelcase
 [string_separator_camelcase]: #string_separator_camelcase
 [string_underscore_camelcase]: #string_underscore_camelcase

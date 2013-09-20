@@ -2,26 +2,34 @@
 
 load ../../src/separator/camelcase
 
-@test "Finish with 1 when passing no separator" {
+@test "Finish with 1 when passing no arguments" {
     run string_separator_camelcase
 
     [ "${status}" -eq 1 ]
 }
 
-@test "Convert a separator to camel case string passing it as parameter" {
-    run string_separator_camelcase "_" "this_is_a_string"
+@test "Convert separator to camelcase passing string as argument" {
+    run string_separator_camelcase " " "this is a string"
 
     [ "${output}" == "thisIsAString" ]
 }
 
-@test "Convert a separator to camel case string using a pipe" {
-    output=$(echo "this-is-a-string" | string_separator_camelcase "-")
+@test "Convert separator to camelcase using a pipe" {
+    output=$(echo "This is a string" | string_separator_camelcase " ")
 
-    [ "${output}" == "thisIsAString" ]
+    [ "${output}" == "ThisIsAString" ]
 }
 
-@test "Convert a separator to camel case string even separator is a slash" {
+@test "Convert separator to camelcase even when separator is a REGEX expression" {
     run string_separator_camelcase "/" "this/is/a/string"
+
+    [ "${output}" == "thisIsAString" ]
+
+    run string_separator_camelcase "+" "this+is+a+string"
+
+    [ "${output}" == "thisIsAString" ]
+
+    run string_separator_camelcase ".." "this..is..a..string"
 
     [ "${output}" == "thisIsAString" ]
 }

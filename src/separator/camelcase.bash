@@ -11,7 +11,7 @@ string_separator_camelcase()
         string=$(cat /dev/stdin)
     fi
 
-    separator=$(echo "${1}" | sed 's#/#\\/#g')
+    separator=$(echo "${1}" | sed -E 's#(.)#\\\1#g')
 
     echo "${string}" | sed -E "s/${separator}(\w)/\u\1/g"
 }

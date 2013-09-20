@@ -6,7 +6,9 @@ Strings handler written in Bash.
 * [string_lower][]
 * [string_upper][]
 * [string_title][]
+* [string_dash_camelcase][]
 * [string_separator_camelcase][]
+* [string_underscore_camelcase][]
 * [string_camelcase_dash][]
 * [string_camelcase_separator][]
 * [string_camelcase_underscore][]
@@ -50,8 +52,21 @@ Using pipes:
 echo "some string" | string_lower # Some String
 ````
 
+### string_dash_camelcase
+Convert dash to camelcase.
+
+Passing string as argument:
+````bash
+string_dash_camelcase "This-is-a-string" # ThisIsAString
+````
+
+Using pipes:
+````bash
+echo "this-is-a-string" | string_dash_camelcase # thisIsAString
+````
+
 ### string_separator_camelcase
-Converts a string replacing a separator to camelcase.
+Convert separator to camelcase.
 
 Passing string as argument:
 ````bash
@@ -61,6 +76,19 @@ string_separator_camelcase " " "This is a string" # ThisIsAString
 Using pipes:
 ````bash
 echo "this is a string" | string_separator_camelcase " " # thisIsAString
+````
+
+### string_underscore_camelcase
+Convert underscore to camelcase.
+
+Passing string as argument:
+````bash
+string_underscore_camelcase "This_is_a_string" # ThisIsAString
+````
+
+Using pipes:
+````bash
+echo "this_is_a_string" | string_underscore_camelcase # thisIsAString
 ````
 
 ### string_camelcase_dash
@@ -105,7 +133,9 @@ echo "thisIsAString" | string_camelcase_underscore # this_Is_A_String
 [string_lower]: #string_lower
 [string_upper]: #string_upper
 [string_title]: #string_title
+[string_dash_camelcase]: #string_dash_camelcase
 [string_separator_camelcase]: #string_separator_camelcase
+[string_underscore_camelcase]: #string_underscore_camelcase
 [string_camelcase_dash]: #string_camelcase_dash
 [string_camelcase_separator]: #string_camelcase_separator
 [string_camelcase_underscore]: #string_camelcase_underscore

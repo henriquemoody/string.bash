@@ -8,6 +8,7 @@ Strings handler written in Bash.
 * [string_title][]
 * [string_repeat][]
 * [string_scape][]
+* [string_replace][]
 * [string_dash_camelcase][]
 * [string_separator_camelcase][]
 * [string_underscore_camelcase][]
@@ -85,6 +86,24 @@ echo 'We have some "rules"' | string_scape # We have some \"rules\"
 Escaping a REGEX:
 ````bash
 string_scape -r "He (Moody) loves to code." # He \(Moody\) loves to code\.
+````
+
+### string_replace
+Replaces content of a string.
+
+Passing string as argument:
+````bash
+string_replace "boy" "girl" "That's my boy." # That's my girl.
+````
+
+Using pipes
+````bash
+echo "John Doe" | string_replace "John" "Jane" # Jane Doe
+````
+
+Using REGEX:
+````bash
+string_replace -t regex "[^a-z]" "" "That's my boy." # hatsmyboy
 ````
 
 ### string_dash_camelcase
@@ -170,6 +189,7 @@ echo "thisIsAString" | string_camelcase_underscore # this_Is_A_String
 [string_title]: #string_title
 [string_repeat]: #string_repeat
 [string_scape]: #string_scape
+[string_replace]: #string_replace
 [string_dash_camelcase]: #string_dash_camelcase
 [string_separator_camelcase]: #string_separator_camelcase
 [string_underscore_camelcase]: #string_underscore_camelcase

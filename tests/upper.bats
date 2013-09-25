@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-load ../src/upper
+load ../source
 
 @test "Upper case a string parameter" {
     run string_upper 'Strings handler in Bash'

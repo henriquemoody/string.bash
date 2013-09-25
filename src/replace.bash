@@ -1,12 +1,10 @@
-type -t string_escape > /dev/null ||
-    source $(dirname "${BASH_SOURCE}")/escape.bash
-
+# @depends string_escape
 string_replace()
 {
+    local type
     local search
     local replace
     local string
-    local type
 
     if [[ "${1}" = '--type' ]] || [[ "${1}" = '-t' ]]; then
         type="${2}"
@@ -23,8 +21,8 @@ string_replace()
 
     case "${type}" in
         plain)
-            search=$(string_escape -r "${1}")
-            replace=$(string_escape -r "${2}")
+            search=$(string_escape --type regex "${1}")
+            replace=$(string_escape --type regex "${2}")
         ;;
         regex)
             search="${1}"

@@ -85,7 +85,7 @@ echo 'We have some "rules"' | string_scape # We have some \"rules\"
 
 Escaping a REGEX:
 ````bash
-string_scape -r "He (Moody) loves to code." # He \(Moody\) loves to code\.
+string_scape --type regex "He (Moody) loves to code." # He \(Moody\) loves to code\.
 ````
 
 ### string_replace

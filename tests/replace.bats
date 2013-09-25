@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-load ../src/replace
+load ../source
 
 @test "Finish with 1 when passing no 'search' argument" {
     run string_replace

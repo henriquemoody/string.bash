@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-load ../../src/camelcase/separator
+load ../../source
 
 @test "Finish with 1 when passing no arguments" {
     run string_camelcase_separator

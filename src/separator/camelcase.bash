@@ -1,3 +1,4 @@
+# @depends string_escape
 string_separator_camelcase()
 {
     local separator="${1}"
@@ -11,7 +12,7 @@ string_separator_camelcase()
         string=$(cat /dev/stdin)
     fi
 
-    separator=$(echo "${1}" | sed -E 's#(.)#\\\1#g')
+    separator=$(string_escape --type regex "${1}" | sed 's#/#\\/#g')
 
     echo "${string}" | sed -E "s/${separator}(\w)/\u\1/g"
 }

@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-load ../src/lower
+load ../source
 
 @test "Lower case a string parameter" {
     run string_lower 'Strings handler in Bash'

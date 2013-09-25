@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-load ../src/title
+load ../source
 
 @test "Captalize a string parameter" {
     run string_title 'Strings handler in BASH'

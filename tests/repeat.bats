@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-load ../src/repeat
+load ../source
 
 @test "Finish with 1 when counter is not passed as argument" {
     run string_repeat

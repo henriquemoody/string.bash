@@ -1,6 +1,4 @@
-type -t string_camelcase_separator > /dev/null ||
-    source $(dirname "${BASH_SOURCE}")/separator.bash
-
+# @depends string_camelcase_separator
 string_camelcase_dash()
 {
     local string="${1}"

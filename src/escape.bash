@@ -1,19 +1,27 @@
 string_escape()
 {
+    local type
+    local chars
     local string
-    local list="'\""
 
-    while [[ "${1}" = -* ]]; do
-        case "${1}" in
-            --regex | -r)
-                list=']$.*+\^?()['
-            ;;
-            *)
-                return 1
-            ;;
-        esac
-        shift
-    done
+    if [[ "${1}" = "--type" ]] || [[ "${1}" = "-t" ]]; then
+        type="${2}"
+        shift 2
+    else
+        type="quote"
+    fi
+
+    case "${type}" in
+        quote)
+            chars=="'\""
+        ;;
+        regex)
+            chars=']$.*+\^?()['
+        ;;
+        *)
+            return 1
+        ;;
+    esac
 
     if [[ -z "${1}" ]] && [ ! -t 0 ]; then
         string=$(cat /dev/stdin)
@@ -21,5 +29,5 @@ string_escape()
         string="${1}"
     fi
 
-    echo "${string}" | sed -E "s/([${list}])/\\\\\1/g"
+    echo "${string}" | sed -E "s/([${chars}])/\\\\\1/g"
 }

@@ -34,6 +34,15 @@
 <p>Strings handler written in Bash.</p>
 
 <h2>
+<a name="using-it" class="anchor" href="#using-it"><span class="octicon octicon-link"></span></a>Using it</h2>
+
+<div class="highlight highlight-bash"><pre><span class="nb">source </span>path/to/string/source.bash
+
+awk -F : <span class="s1">'{print $5}'</span> /etc/passwd |
+    string_title
+</pre></div>
+
+<h2>
 <a name="available-functions" class="anchor" href="#available-functions"><span class="octicon octicon-link"></span></a>Available functions</h2>
 
 <ul>
@@ -43,6 +52,7 @@
 <li><a href="#string_repeat">string_repeat</a></li>
 <li><a href="#string_scape">string_scape</a></li>
 <li><a href="#string_replace">string_replace</a></li>
+<li><a href="#string_replace_all">string_replace_all</a></li>
 <li><a href="#string_dash_camelcase">string_dash_camelcase</a></li>
 <li><a href="#string_separator_camelcase">string_separator_camelcase</a></li>
 <li><a href="#string_underscore_camelcase">string_underscore_camelcase</a></li>
@@ -128,7 +138,7 @@
 
 <p>Escaping a REGEX:</p>
 
-<div class="highlight highlight-bash"><pre>string_scape -r <span class="s2">"He (Moody) loves to code."</span> <span class="c"># He \(Moody\) loves to code\.</span>
+<div class="highlight highlight-bash"><pre>string_scape --type regex <span class="s2">"He (Moody) loves to code."</span> <span class="c"># He \(Moody\) loves to code\.</span>
 </pre></div>
 
 <h3>
@@ -149,6 +159,21 @@
 <p>Using REGEX:</p>
 
 <div class="highlight highlight-bash"><pre>string_replace -t regex <span class="s2">"[^a-z]"</span> <span class="s2">""</span> <span class="s2">"That's my boy."</span> <span class="c"># hatsmyboy</span>
+</pre></div>
+
+<h3>
+<a name="string_replace_all" class="anchor" href="#string_replace_all"><span class="octicon octicon-link"></span></a>string_replace_all</h3>
+
+<p>Replaces all chars to a defined string</p>
+
+<p>Passing string as argument:</p>
+
+<div class="highlight highlight-bash"><pre>string_replace_all <span class="s2">"*"</span> <span class="s2">"p4ssw0rd"</span> <span class="c"># ********</span>
+</pre></div>
+
+<p>Using pipes</p>
+
+<div class="highlight highlight-bash"><pre><span class="nb">echo</span> <span class="s2">"p4ssw0rd"</span> | string_replace_all <span class="s2">"*"</span> <span class="c"># ********</span>
 </pre></div>
 
 <h3>

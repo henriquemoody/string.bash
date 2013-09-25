@@ -8,16 +8,10 @@ load ../source
     [ "${status}" -eq 1 ]
 }
 
-@test "Finish with 2 when passing no 'replace' argument" {
-    run string_replace "search"
-
-    [ "${status}" -eq 2 ]
-}
-
-@test "Finish with 3 when passing an invalid '--type' option value" {
+@test "Finish with 2 when passing an invalid '--type' option value" {
     run string_replace -t something "search" "replace" "String to search."
 
-    [ "${status}" -eq 3 ]
+    [ "${status}" -eq 2 ]
 }
 
 @test "Replace a using plain text" {

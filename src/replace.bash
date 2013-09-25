@@ -15,8 +15,6 @@ string_replace()
 
     if [[ -z "${1}" ]]; then
         return 1
-    elif [[ -z "${2}" ]]; then
-        return 2
     fi
 
     case "${type}" in
@@ -29,7 +27,7 @@ string_replace()
             replace="${2}"
         ;;
         *)
-            return 3
+            return 2
         ;;
     esac
 

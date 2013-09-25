@@ -9,6 +9,7 @@ Strings handler written in Bash.
 * [string_repeat][]
 * [string_scape][]
 * [string_replace][]
+* [string_replace_all][]
 * [string_dash_camelcase][]
 * [string_separator_camelcase][]
 * [string_underscore_camelcase][]
@@ -106,6 +107,19 @@ Using REGEX:
 string_replace -t regex "[^a-z]" "" "That's my boy." # hatsmyboy
 ````
 
+### string_replace_all
+Replaces all chars to a defined string
+
+Passing string as argument:
+````bash
+string_replace_all "*" "p4ssw0rd" # ********
+````
+
+Using pipes
+````bash
+echo "p4ssw0rd" | string_replace_all "*" # ********
+````
+
 ### string_dash_camelcase
 Convert dash to camelcase.
 
@@ -190,6 +204,7 @@ echo "thisIsAString" | string_camelcase_underscore # this_Is_A_String
 [string_repeat]: #string_repeat
 [string_scape]: #string_scape
 [string_replace]: #string_replace
+[string_replace_all]: #string_replace_all
 [string_dash_camelcase]: #string_dash_camelcase
 [string_separator_camelcase]: #string_separator_camelcase
 [string_underscore_camelcase]: #string_underscore_camelcase

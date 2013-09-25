@@ -1,6 +1,15 @@
 # String
 Strings handler written in Bash.
 
+## Using it
+
+````bash
+source path/to/string/source.bash
+
+awk -F : '{print $5}' /etc/passwd |
+    string_title
+````
+
 ## Available functions
 
 * [string_lower][]

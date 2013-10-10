@@ -32,7 +32,7 @@ string_replace()
     esac
 
     if [[ -z "${3}" ]] && [ ! -t 0 ]; then
-        string=$(cat /dev/stdin)
+        string=$(cat <&0)
     else
         string="${3}"
     fi

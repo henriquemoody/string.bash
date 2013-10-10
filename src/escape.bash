@@ -24,7 +24,7 @@ string_escape()
     esac
 
     if [[ -z "${1}" ]] && [ ! -t 0 ]; then
-        string=$(cat /dev/stdin)
+        string=$(cat <&0)
     else
         string="${1}"
     fi

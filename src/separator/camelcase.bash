@@ -9,7 +9,7 @@ string_separator_camelcase()
     fi
 
     if [[ -z "${string}" ]] && [ ! -t 0 ]; then
-        string=$(cat /dev/stdin)
+        string=$(cat <&0)
     fi
 
     separator=$(string_escape --type regex "${1}" | sed 's#/#\\/#g')

@@ -6,7 +6,7 @@ string_replace_all()
     local string="${2}"
 
     if [[ -z "${string}" ]] && [ ! -t 0 ]; then
-        string=$(cat /dev/stdin)
+        string=$(cat <&0)
     fi
 
     string_replace --type regex "." "$(echo "${replacement}" | string_escape --type regex)" "${string}"

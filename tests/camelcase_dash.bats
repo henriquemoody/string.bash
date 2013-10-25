@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-load ../../source
+load ../source
 
 @test "Convert camelcase to dash passing string as argument" {
     run string_camelcase_dash 'thisIsAString'

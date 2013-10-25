@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-load ../../source
+load ../source
 
 @test "Convert camelcase to underscore passing string as argument" {
     run string_camelcase_underscore 'thisIsAString'

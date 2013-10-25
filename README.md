@@ -1,4 +1,6 @@
 # String
+[![Build Status](https://travis-ci.org/bscm/string.png?branch=master)](https://travis-ci.org/bscm/string)
+
 Strings handler written in Bash.
 
 ## Using it

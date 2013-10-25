@@ -1,6 +1,6 @@
 #!/usr/bin/env bats
 
-load ../../source
+load ../source
 
 @test "Replace all chars to defined argument" {
     run string_replace_all '*' 'Henrique Moody'

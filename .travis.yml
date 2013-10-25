@@ -1,0 +1,10 @@
+language:
+   - bash
+
+before_script:
+  - curl -L https://github.com/sstephenson/bats/archive/v0.3.0.tar.gz | tar -xzC .
+  - export PATH=${PWD}/bats-0.3.0/bin:${PATH}
+  - bats --version
+
+script:
+  - make test

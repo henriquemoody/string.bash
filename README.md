@@ -1,5 +1,5 @@
 # String
-[![Build Status](https://travis-ci.org/bscm/string.png?branch=master)](https://travis-ci.org/bscm/string)
+[![Build Status](https://travis-ci.org/henriquemoody/string.bash.png?branch=master)](https://travis-ci.org/henriquemoody/string.bash)
 
 Strings handler written in Bash.
 

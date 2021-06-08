@@ -2,8 +2,9 @@ string_repeat()
 {
     local count="${1}"
     local string="${2}"
+    local i
 
-    if [[ "${count}" -lt 1 ]]; then
+    if ((count < 1)); then
         return 1
     fi
 
